@@ -2,13 +2,17 @@
 
 int main()
 {
-  //   let[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  char key[] = "NWLRBMQHCDAZOKYISXJFEGPUVT"; 
-  char message[] = "RCR VYE BGBX HBNX FHB FXNQBRV YM RNXFH IZNQEBCJ FHB PCJB? C FHYEQHF KYF. CF'J KYF N JFYXV FHB DBRC PYEZR FBZZ VYE. CF'J N JCFH ZBQBKR. RNXFH IZNQEBCJ PNJ N RNXA ZYXR YM FHB JCFH, JY IYPBXMEZ NKR JY PCJB HB LYEZR EJB FHB MYXLB FY CKMZEBKLB FHB OCRCLHZYXCNKJ FY LXBNFB ZCMB… HB HNR JELH N AKYPZBRQB YM FHB RNXA JCRB FHNF HB LYEZR BGBK ABBI FHB YKBJ HB LNXBR NWYEF MXYO RVCKQ. FHB RNXA JCRB YM FHB MYXLB CJ N INFHPNV FY ONKV NWCZCFCBJ JYOB LYKJCRBX FY WB EKKNFEXNZ. HB WBLNOB JY IYPBXMEZ… FHB YKZV FHCKQ HB PNJ NMXNCR YM PNJ ZYJCKQ HCJ IYPBX, PHCLH BGBKFENZZV, YM LYEXJB, HB RCR. EKMYXFEKNFBZV, HB FNEQHF HCJ NIIXBKFCLB BGBXVFHCKQ HB AKBP, FHBK HCJ NIIXBKFCLB ACZZBR HCO CK HCJ JZBBI. CXYKCL. HB LYEZR JNGB YFHBXJ MXYO RBNFH, WEF KYF HCOJBZM.";
+  // char let[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  char key[] = "BCDEFGHIJKLMNOPQRSTUVWXYZA"; 
+  char input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  char message[50];
+  char decode[50];
   int index;
-  for(index = 0; message[index] != 0; index++)
+ // int count = 0;
+  //int count2 = 0;
+  for(index = 0; input[index] != 0; index++)
   {
-      switch (message[index])
+      switch (input[index])
       {
           case 65: 
           message[index] = key[0];
@@ -90,8 +94,10 @@ int main()
           break;
           
       }
+   
   }
-  printf("Your message is: %s\n", message);
+  printf("Your Encrypted message is: %s\n", message);
+  printf("%s\n", decode);
 }
 
 
@@ -118,3 +124,16 @@ if(a[index] == message[index2])
 printf("Message is: %s\n", message);  
 } 
 */
+/*    for(index = 0; key[index] != 0; index++)
+      {
+        if(let[count] == key[index])
+        {
+          decode[count2] = let[count]; 
+          count2++;
+        }
+        else
+        {
+            count++;
+        }
+      }
+      */
