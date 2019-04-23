@@ -1,36 +1,37 @@
 #include<stdio.h>
-char EncS(char message[], char key[]);
+void EncS(char message[], char key[]); //function prototype, EncS (Encrypt Substitution)
 int main()
 {
-    //
-    //char let[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char key[] = "QWERTYUIOPASDFGHJKLZXCVBNM"; 
-    char message[] = "hey dumbo";
-    EncS(message, key);
+    char key[] = "ZXCVBNMASDFGHJKLQWERTYUIOP"; //inputted new 'Alphabet' to be used
+    char message[] = "hey dumbo"; //inputted message to be converted using new 'Alphabet'
+    EncS(message, key); 
 } 
- 
-char EncS(char message[], char key[])
-{
-    
-    printf("message was: %s\n", message);
-    int index;
-    for(index = 0; message[index] != 0; index++)
+/*The function EncS encrypts a message using a substitution cipher
+The char input message is the inputted message for encryption
+The char input key is the new 'alphabet' that the encryption uses such that each letter of alphabet is changed to the corresponding letter in the key
+This means that if the first letter of the key is Z, every A will be encrypted into a Z
+This function has a return value of void as it prints the encrypted message instead of returning it
+This function will not encrypt symbols or numbers and only encrypts lower and upper case letters, and will also only produce upper case letter outputs
+ */
+void EncS(char message[], char key[])
+{  
+    printf("message was: %s\n", message); //prints original message for review
+    int index; //intialised interger to be used as pointer through message array
+    for(index = 0; message[index] != 0; index++) //for loop that cycles through each character until message[index] == 0 then stops
     {
-        //
-        if(message[index] >= 97 && message[index] <= 122)
+        if(message[index] >= 97 && message[index] <= 122) //if loop that only works on lower case letter, which are within these two inequalities
         {
-            //
-            message[index] = message[index] - 32;
+            message[index] = message[index] - 32; // -32 sets lower case letters into upper case letters
         }
     }
-    for(index = 0; message[index] != 0; index++)
+    for(index = 0; message[index] != 0; index++) //for loop to cycle through message again now that it is all upper case letters
     {   
-        switch (message[index])
+        switch (message[index]) //switch case to change the letters to the alphabet of the key, 
         {   
-            case 65: 
-            message[index] = key[0];
-            break;
-            case 66:
+            case 65: //A=65, this case occurs if the message[index] is A and turns this A into the first letter in the new key alphabet
+            message[index] = key[0]; //assigns the letter A to the first character in the key
+            break; //breaks out of the switch and loops back through the for loop to the next character
+            case 66: //B=66, this case occurs if message[index] is B and turns the B into the second character in the new key
             message[index] = key[1];
             break;
             case 67: 
@@ -108,6 +109,5 @@ char EncS(char message[], char key[])
         }
    
     }         
-    printf("Your Encrypted message is: %s\n", message);
-    return 0;
+    printf("Your Encrypted message is: %s\n", message); //prints the new encrypted message
 }
