@@ -2,17 +2,24 @@
 
 int main()
 {
-  // char let[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  char key[] = "BCDEFGHIJKLMNOPQRSTUVWXYZA"; 
-  char input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  char message[50];
-  char decode[50];
+  //char let[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  char key[] = "QWERTYUIOPASDFGHJKLZXCVBNM"; 
+  char message[] = "hey dumbo";
+  
+ 
   int index;
+   for(index = 0; message[index] != 0; index++)
+ {
+ if(message[index] >= 97 && message[index] <= 122)
+ {
+ message[index] = message[index] - 32;
+ }
+ }
  // int count = 0;
   //int count2 = 0;
-  for(index = 0; input[index] != 0; index++)
+  for(index = 0; message[index] != 0; index++)
   {
-      switch (input[index])
+      switch (message[index])
       {
           case 65: 
           message[index] = key[0];
@@ -97,43 +104,4 @@ int main()
    
   }
   printf("Your Encrypted message is: %s\n", message);
-  printf("%s\n", decode);
 }
-
-
-
-/* #include<stdio.h>
-
-int main()
-{
-    char b[] = "ZXCVBNMASDFGHJKLQWERTYUIOP";
-    char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char message[] = "HELLO";
-  int index=0;
-  int index2 = 0;
-  
-for(index = 0; a[index] !=0; index++)
-{
-if(a[index] == message[index2])
-{
-    message[index2] = b[index];
-    index2++;
-}       
-}
-
-printf("Message is: %s\n", message);  
-} 
-*/
-/*    for(index = 0; key[index] != 0; index++)
-      {
-        if(let[count] == key[index])
-        {
-          decode[count2] = let[count]; 
-          count2++;
-        }
-        else
-        {
-            count++;
-        }
-      }
-      */
